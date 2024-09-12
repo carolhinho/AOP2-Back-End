@@ -1,9 +1,11 @@
+// Função principal para fazer requisições assíncronas
 function fazerRequisicao(url, metodo = 'GET', callbackSucesso, callbackErro) {
     var xhr = new XMLHttpRequest();
 
+    // Configura a requisição (método e URL)
     xhr.open(metodo, url, true);
 
-
+    // Define a função a ser executada no carregamento da resposta
     xhr.onload = function() {
         try {
             if (xhr.status >= 200 && xhr.status < 300) {
@@ -37,7 +39,7 @@ function atualizarInterface(dados, elementoId) {
     // Itera pelos dados e cria os elementos para exibir
     dados.forEach(function(item) {
         var listItem = document.createElement('li');
-        listItem.textContent = item.nome + ' - R$ ' + item.preco;
+        listItem.textContent = `${item.nome} - R$ ${item.preco}`;
         lista.appendChild(listItem);
     });
 }
